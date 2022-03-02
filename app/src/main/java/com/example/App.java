@@ -10,23 +10,26 @@ import java.util.Scanner;
 
 public class App {
 
-    public static void main(String[] args) throws IOException {
-        System.out.println("Please enter your image path");
-        Scanner scanner = new Scanner(System.in);
-        File bmpFile= new File(scanner.nextLine());
+    public static void main(String[] args) {
 
-        BufferedImage image=ReadData.readData(bmpFile);
-        System.out.println(image);
+//        bitmap outputImage = new bitmap("ouputImage.bmp");
+//        System.out.println("Please enter your image path");
+//        Scanner scanner = new Scanner(System.in);
+//        File bmpFile= new File(scanner.nextLine());
+//
+//        System.out.println("Please enter your image printing path");
+//        File printingFile = new File(scanner.nextLine());
+//
+//        System.out.println("Please enter your transformation");
+//        String transformation = new String(scanner.nextLine());
 
-        System.out.println("Please enter your image printing path");
-        File printingFile = new File(scanner.nextLine());
+        bitmap inputImage = new bitmap();
+//        inputImage.readData(new File("C:\\Users\\acer\\ASAC\\bitmap-transformer\\app\\src\\main\\resources\\MARBLESsquare.dib"));
+        inputImage.readData(new File(args[0]));
 
-        System.out.println("Please enter your transformation");
+        if(args[2]=="Mirror")
+        inputImage.Mirror();
 
-        String transformation = new String(scanner.nextLine());
-
-        //       System.out.println(Rotate180degrees.Rotate180Degrees(image));
-
-
+        inputImage.renderImage(new File(args[1]));
     }
 }
