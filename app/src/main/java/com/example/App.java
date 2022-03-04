@@ -22,14 +22,25 @@ public class App {
 //
 //        System.out.println("Please enter your transformation");
 //        String transformation = new String(scanner.nextLine());
+//        inputImage.readData(new File("C:\\Users\\acer\\ASAC\\bitmap-transformer\\app\\src\\main\\resources\\MARBLESsquare.dib"));
 
         bitmap inputImage = new bitmap();
-//        inputImage.readData(new File("C:\\Users\\acer\\ASAC\\bitmap-transformer\\app\\src\\main\\resources\\MARBLESsquare.dib"));
         inputImage.readData(new File(args[0]));
 
-        if(args[2]=="Mirror")
-        inputImage.Mirror();
+        if(args[2].equals("Mirror"))
+            inputImage.renderImage(new File(args[1]),inputImage.Mirror());
 
-        inputImage.renderImage(new File(args[1]));
+        if(args[2].equals("Rotate"))
+        {
+            inputImage.renderImage(new File(args[1]),inputImage.Rotate180());
+        }
+        if(args[2].equals("BlackAndWhite"))
+            inputImage.renderImage(new File(args[1]),inputImage.BlackAndWhite());
+
+
+
+        
+
+
     }
 }
